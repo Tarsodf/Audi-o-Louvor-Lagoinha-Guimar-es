@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Audição Louvor - Lagoinha Guimarães</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="audição-Cópia.ico">
+</head>
+<body>
+    <!-- Imagem de fundo com formulário centralizado -->
+    <div class="bg-container">
+        <div class="centralizar">
+            <div class="container">
+                <h1>Audição - Lagoinha Guimarães</h1>
+                <p>Se você deseja servir no louvor da Lagoinha Guimarães, preencha este formulário para participar do processo de audição.<br />
+                Queremos conhecer suas habilidades e disponibilidade.</p>
+
+                <blockquote>
+                    "Servi ao Senhor com alegria; apresentai-vos a ele com canto." – Salmos 100:2
+                </blockquote>
+
+                <form action="https://formspree.io/f/xyzplawn" method="POST">
+                    
+                    <label for="nome">Nome Completo *</label>
+                    <input type="text" id="nome" name="nome" required />
+
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required />
+
+                    <label for="telefone">Telefone / WhatsApp *</label>
+                    <input type="text" id="telefone" name="telefone" required />
+                    
+                    <label for="idade">Sua Idade *</label>
+                    <input type="text" id="idade" name="idade" required />
+
+                    <label for="experiencia">Experiência Musical (se houver)</label>
+                    <textarea id="experiencia" name="experiencia" rows="3"></textarea>
+
+                    <legend>Selecione as funções que deseja participar (até 3):</legend>
+    <div class="funcoes-grid">
+        <label><input type="checkbox" name="funcao[]" value="Voz" class="funcao-checkbox" /> Voz</label>
+        <label><input type="checkbox" name="funcao[]" value="Teclado" class="funcao-checkbox" /> Teclado</label>
+        <label><input type="checkbox" name="funcao[]" value="Bateria" class="funcao-checkbox" /> Bateria</label>
+        <label><input type="checkbox" name="funcao[]" value="Contrabaixo" class="funcao-checkbox" /> Contrabaixo</label>
+        <label><input type="checkbox" name="funcao[]" value="Violão" class="funcao-checkbox" /> Violão</label>
+        <label><input type="checkbox" name="funcao[]" value="Guitarra" class="funcao-checkbox" /> Guitarra</label>
+        <label><input type="checkbox" name="funcao[]" value="Sonoplastia (PA)" class="funcao-checkbox" /> Sonoplastia (PA)</label>
+    </div>
+    <small id="funcao-mensagem" class="mensagem-erro" style="display: none;">Selecione no máximo 3 opções</small>
+</fieldset>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('.funcao-checkbox');
+    const mensagemErro = document.getElementById('funcao-mensagem');
+    
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const checked = document.querySelectorAll('.funcao-checkbox:checked');
+            if (checked.length > 3) {
+                this.checked = false;
+                mensagemErro.style.display = 'block';
+                setTimeout(() => {
+                    mensagemErro.style.display = 'none';
+                }, 3000);
+            }
+        });
+    });
+});
+</script>
+                    <button type="submit">Enviar inscrição</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Desenvolvido por Tarso Souza © 2025
+    </footer>
+</body>
+</html>
