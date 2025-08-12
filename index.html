@@ -2,10 +2,44 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Audição Louvor - Lagoinha Guimarães</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="audição-Cópia.ico">
+    <style>
+        /* Estilos inline para garantir visibilidade imediata */
+        .bg-container {
+            background-size: cover !important;
+            min-height: 100vh !important;
+            padding: 20px 0 !important;
+        }
+        
+        .container {
+            max-width: 95% !important;
+            margin: 20px auto !important;
+        }
+        
+        footer {
+            position: relative !important;
+            margin-top: 30px !important;
+            z-index: 10 !important;
+        }
+        
+        @media (max-width: 480px) {
+            .centralizar {
+                padding: 10px !important;
+            }
+            
+            .container {
+                padding: 20px !important;
+                border-radius: 15px !important;
+            }
+            
+            h1 {
+                font-size: 1.5rem !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Imagem de fundo com formulário centralizado -->
@@ -20,7 +54,7 @@
                     "Servi ao Senhor com alegria; apresentai-vos a ele com canto." – Salmos 100:2
                 </blockquote>
 
-                <form action="https://formspree.io/f/xyzplawn" method="POST">
+                <form action="https://formspree.io/f/xyzplawn" method="POST" id="audicaoForm">
                     
                     <label for="nome">Nome Completo *</label>
                     <input type="text" id="nome" name="nome" required />
@@ -37,37 +71,20 @@
                     <label for="experiencia">Experiência Musical (se houver)</label>
                     <textarea id="experiencia" name="experiencia" rows="3"></textarea>
 
-                    <legend>Selecione as funções que deseja participar (até 3):</legend>
-    <div class="funcoes-grid">
-        <label><input type="checkbox" name="funcao[]" value="Voz" class="funcao-checkbox" /> Voz</label>
-        <label><input type="checkbox" name="funcao[]" value="Teclado" class="funcao-checkbox" /> Teclado</label>
-        <label><input type="checkbox" name="funcao[]" value="Bateria" class="funcao-checkbox" /> Bateria</label>
-        <label><input type="checkbox" name="funcao[]" value="Contrabaixo" class="funcao-checkbox" /> Contrabaixo</label>
-        <label><input type="checkbox" name="funcao[]" value="Violão" class="funcao-checkbox" /> Violão</label>
-        <label><input type="checkbox" name="funcao[]" value="Guitarra" class="funcao-checkbox" /> Guitarra</label>
-        <label><input type="checkbox" name="funcao[]" value="Sonoplastia (PA)" class="funcao-checkbox" /> Sonoplastia (PA)</label>
-    </div>
-    <small id="funcao-mensagem" class="mensagem-erro" style="display: none;">Selecione no máximo 3 opções</small>
-</fieldset>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const checkboxes = document.querySelectorAll('.funcao-checkbox');
-    const mensagemErro = document.getElementById('funcao-mensagem');
-    
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            const checked = document.querySelectorAll('.funcao-checkbox:checked');
-            if (checked.length > 3) {
-                this.checked = false;
-                mensagemErro.style.display = 'block';
-                setTimeout(() => {
-                    mensagemErro.style.display = 'none';
-                }, 3000);
-            }
-        });
-    });
-});
-</script>
+                    <fieldset class="funcoes-container">
+                        <legend>Selecione as funções que deseja participar (até 3):</legend>
+                        <div class="funcoes-grid">
+                            <label><input type="checkbox" name="funcao[]" value="Voz" class="funcao-checkbox" /> Voz</label>
+                            <label><input type="checkbox" name="funcao[]" value="Teclado" class="funcao-checkbox" /> Teclado</label>
+                            <label><input type="checkbox" name="funcao[]" value="Bateria" class="funcao-checkbox" /> Bateria</label>
+                            <label><input type="checkbox" name="funcao[]" value="Contrabaixo" class="funcao-checkbox" /> Contrabaixo</label>
+                            <label><input type="checkbox" name="funcao[]" value="Violão" class="funcao-checkbox" /> Violão</label>
+                            <label><input type="checkbox" name="funcao[]" value="Guitarra" class="funcao-checkbox" /> Guitarra</label>
+                            <label><input type="checkbox" name="funcao[]" value="Sonoplastia (PA)" class="funcao-checkbox" /> Sonoplastia (PA)</label>
+                        </div>
+                        <small id="funcao-mensagem" class="mensagem-erro" style="display: none;">Selecione no máximo 3 opções</small>
+                    </fieldset>
+
                     <button type="submit">Enviar inscrição</button>
                 </form>
             </div>
@@ -77,5 +94,25 @@ document.addEventListener('DOMContentLoaded', function() {
     <footer>
         Desenvolvido por Tarso Souza © 2025
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.funcao-checkbox');
+            const mensagemErro = document.getElementById('funcao-mensagem');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const checked = document.querySelectorAll('.funcao-checkbox:checked');
+                    if (checked.length > 3) {
+                        this.checked = false;
+                        mensagemErro.style.display = 'block';
+                        setTimeout(() => {
+                            mensagemErro.style.display = 'none';
+                        }, 3000);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
