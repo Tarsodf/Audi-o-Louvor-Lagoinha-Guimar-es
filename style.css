@@ -213,3 +213,30 @@ footer {
         max-height: 900px;
     }
 }
+/* Imagem de fundo */
+.bg-container {
+    background-image: url('audiçao.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Estilos para checkboxes */
+.funcoes-grid input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+.mensagem-erro {
+    color: #ff6b6b;
+    display: none;
+    margin-top: 5px;
+    font-size: 0.85rem;
+}

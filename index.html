@@ -37,19 +37,37 @@
                     <label for="experiencia">Experiência Musical (se houver)</label>
                     <textarea id="experiencia" name="experiencia" rows="3"></textarea>
 
-                    <fieldset class="funcoes-container">
-                        <legend>Selecione a função que deseja participar:</legend>
-                        <div class="funcoes-grid">
-                            <label><input type="radio" name="funcao" value="Voz" required /> Voz</label>
-                            <label><input type="radio" name="funcao" value="Teclado" /> Teclado</label>
-                            <label><input type="radio" name="funcao" value="Bateria" /> Bateria</label>
-                            <label><input type="radio" name="funcao" value="Contrabaixo" /> Contrabaixo</label>
-                            <label><input type="radio" name="funcao" value="Violão" /> Violão</label>
-                            <label><input type="radio" name="funcao" value="Guitarra" /> Guitarra</label>
-                            <label><input type="radio" name="funcao" value="Sonoplastia (PA)" /> Sonoplastia (PA)</label>
-                        </div>
-                    </fieldset>
-
+                    <legend>Selecione as funções que deseja participar (até 3):</legend>
+    <div class="funcoes-grid">
+        <label><input type="checkbox" name="funcao[]" value="Voz" class="funcao-checkbox" /> Voz</label>
+        <label><input type="checkbox" name="funcao[]" value="Teclado" class="funcao-checkbox" /> Teclado</label>
+        <label><input type="checkbox" name="funcao[]" value="Bateria" class="funcao-checkbox" /> Bateria</label>
+        <label><input type="checkbox" name="funcao[]" value="Contrabaixo" class="funcao-checkbox" /> Contrabaixo</label>
+        <label><input type="checkbox" name="funcao[]" value="Violão" class="funcao-checkbox" /> Violão</label>
+        <label><input type="checkbox" name="funcao[]" value="Guitarra" class="funcao-checkbox" /> Guitarra</label>
+        <label><input type="checkbox" name="funcao[]" value="Sonoplastia (PA)" class="funcao-checkbox" /> Sonoplastia (PA)</label>
+    </div>
+    <small id="funcao-mensagem" class="mensagem-erro" style="display: none;">Selecione no máximo 3 opções</small>
+</fieldset>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('.funcao-checkbox');
+    const mensagemErro = document.getElementById('funcao-mensagem');
+    
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const checked = document.querySelectorAll('.funcao-checkbox:checked');
+            if (checked.length > 3) {
+                this.checked = false;
+                mensagemErro.style.display = 'block';
+                setTimeout(() => {
+                    mensagemErro.style.display = 'none';
+                }, 3000);
+            }
+        });
+    });
+});
+</script>
                     <button type="submit">Enviar inscrição</button>
                 </form>
             </div>
