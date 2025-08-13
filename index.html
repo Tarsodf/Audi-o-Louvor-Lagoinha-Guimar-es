@@ -51,11 +51,14 @@
                         <small id="funcao-mensagem" class="mensagem-erro" style="display: none;">Selecione no máximo 3 opções</small>
                     </fieldset>
 
-                    <label for="video">Link do Vídeo (Google Drive, YouTube, etc.)</label>
-                    <input type="url" id="video" name="video" placeholder="https://...">
-                    <small>Insira o link para o seu vídeo. Pode ser no Google Drive, YouTube (não listado) ou outra plataforma de compartilhamento.</small>
-
-
+                <div class="opcoes-video">
+                    <small>Toque para enviar um vídeo do seu dispositivo. Funciona no celular e no computador. </small>
+                    <p>Carregar arquivo de vídeo</p>
+                <label for="video-upload" class="label-upload">
+                <input type="file" id="video-upload" name="video_upload" accept="video/*" class="input-upload">
+                </label>
+            
+</div>
                     <button type="submit">Enviar inscrição</button>
                 </form>
             </div>
