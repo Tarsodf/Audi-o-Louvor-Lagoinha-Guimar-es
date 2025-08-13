@@ -1,0 +1,267 @@
+/* Reset e configurações básicas */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Div para centralizar o formulário */
+.centralizar {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Imagem de fundo */
+.bg-container {
+    background-image: url('audiçao.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+/* Formulário container */
+.container {
+    width: 90%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: clamp(20px, 5vw, 40px);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(117, 23, 23, 0.8);
+    color: white;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    margin: 20px auto;
+    backdrop-filter: blur(5px);
+    box-sizing: border-box;
+}
+
+/* Títulos e textos */
+h1 {
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #eee;
+}
+
+blockquote {
+    font-style: italic;
+    color: #dddddd;
+    border-left: 4px solid #ccc;
+    padding-left: 10px;
+    margin: 20px 0;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #fff;
+}
+
+/* Inputs e textarea */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    background: rgba(255, 255, 255, 0.95);
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Container e grid das funções */
+.funcoes-container {
+    margin: 25px 0 15px;
+    border: none;
+    padding: 0;
+}
+
+.funcoes-container legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+}
+
+.funcoes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.funcoes-grid label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0;
+    font-weight: normal;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.funcoes-grid label:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.funcoes-grid input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* Mensagens de erro */
+.mensagem-erro {
+    color: #ff6b6b;
+    display: none;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Botão */
+button {
+    margin-top: 25px;
+    padding: 14px;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #0052a3;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 18px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    width: 100%;
+    margin-top: auto;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+/* Responsividade */
+
+/* Telas muito pequenas */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        max-width: none;
+        padding: 20px;
+        border-radius: 15px;
+        font-size: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+    
+    .funcoes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bg-container {
+        background-attachment: scroll;
+        padding: 20px 10px;
+    }
+    
+    .centralizar {
+        padding: 10px;
+    }
+}
+
+/* Telas pequenas até 600px */
+@media (max-width: 600px) {
+    .funcoes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Telas médias até 900px */
+@media (max-width: 900px) {
+    .container {
+        max-width: 90vw;
+        padding: 25px;
+    }
+    
+    footer {
+        padding: 15px;
+    }
+}
+
+/* Telas grandes a partir de 1200px */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 550px;
+        padding: 40px;
+    }
+    
+    .funcoes-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
