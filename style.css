@@ -28,18 +28,18 @@ body {
 
 /* Imagem de fundo */
 .bg-container {
-    background-image: url('audiçao.png');
+    background-image: url('louvor.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
+    background-position: top center; /* Mostra mais do topo da imagem */
+    background-attachment: fixed; /* Imagem fixa no scroll */
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
-    padding: 20px 0;
+    min-height: 100vh; /* Tela inteira */
+    padding: 0; /* Remove padding que cortava imagem */
 }
 
 /* Formulário container */
@@ -265,4 +265,3 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
